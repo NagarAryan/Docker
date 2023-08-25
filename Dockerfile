@@ -6,7 +6,6 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 ENV USERNAME=user
 ENV PASSWORD=pass
-COPY index.html /var/www/html/
 EXPOSE $PORT
-CMD ECHO "The username of the user $USERNAME and their password is $PASSWORD"
-
+COPY index.html /var/www/html/
+CMD ["apache2ctl", "-D", "FOREGROUND"]
