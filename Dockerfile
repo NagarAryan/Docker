@@ -4,7 +4,9 @@ RUN apt-get update && \
     apt-get install -y apache2 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf 
+RUN echo "CustomLog /dev/stdout combined" >> /etc/apache2/apache2.conf 
+RUN echo "ErrorLog /dev/stderr" >> /etc/apache2/apache2.conf 
 ENV USERNAME=user
 ENV PASSWORD=pass
 EXPOSE $PORT
